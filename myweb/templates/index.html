@@ -34,7 +34,7 @@
                 <nav>
                   <div>
                     <div>
-                      <h1><a href="{% url 'home' %}">PJ-Tech</a></h1>
+                      <h1><a href="{% url 'home' %}">StunnaTech</a></h1>
                       
                   </div>
                   
@@ -81,24 +81,25 @@
                       <img src="{% static 'media/Machine-Learning.jpg' %}" class="d-block w-100" alt="...">
                       <div class="carousel-caption d-sm-block d-md-block">
                           <div class="caro">
-                              <h1>Welcome To PJ-Tech</h1>
-                          <p>Turning Complex data into clear, actionable insights <br> that power smarter decisions.</p>
+                              <h1>Where Ideas Becomes System</h1>
+                    
+                          <p>Turning Complexity into Solution</p>
                           <button><a href="{% url 'contact' %}">Message Us</a></button>
                           </div>
                         </div>
                       
                     </div>
-                    <div class="carousel-item">
+                    {% comment %} <div class="carousel-item">
                       <img src="{% static 'media/What-is-Machine-Learning-and-Machine-Learning-Techniques.jpg' %}" class="d-block w-100" alt="...">
                       <div class="carousel-caption d-sm-block d-md-block">
                           <div class="caro">
-                              <h1>Data Meet Creativity</h1>
-                          <p>I blend analytical precision with innovative thinking <br> to uncover patterns and build solutions that matter. </p>
+                              <h1>Innovation - Data - Software - System</h1>
+                          <p>We blend analytical precision with innovative thinking <br> to uncover patterns and build solution. </p>
                           <button><a href="{% url 'contact' %}">Message Us</a></button>
                           </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
+                    </div> {% endcomment %}
+                    {% comment %} <div class="carousel-item">
                       <img src="{% static 'media/cluster_visuals.png' %}" class="d-block w-100" alt="...">
                       <div class="carousel-caption d-sm-block d-md-block">
                           <div class="caro">
@@ -117,7 +118,7 @@
                           <button><a href="{% url 'contact' %}">Message Us</a></button>
                           </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
 
                   </div>
                   
@@ -264,7 +265,49 @@
                         </div>
                       </div>
                     </div>
-              
+             
+                    
+                     <!-- Project 5 -->
+                    <div class="col-md-4">
+                      <div class="card shadow-sm h-100">
+                        <img src="{% static 'media/Screenshot 2025-08-14 at 4.52.03 AM.png' %}" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                          <h5 class="card-title">Machine Learning</h5>
+                          <p class="card-text">
+                           Built a loan website that allow users to apply for aloan using a machine learning model.
+                          </p>
+                          <span class="badge bg-warning text-dark">Scikit-learn</span>
+                          <span class="badge bg-info">Jupyter Notebook</span>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="https://github.com/OguntolaPelumi/loan_app" class="btn btn-outline-primary btn-sm">View Project</a>
+                          <a href="https://loanapp-jzxq.onrender.com"></a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="col-md-4">
+                      <div class="card shadow-sm h-100">
+                        <img src="{% static 'media/Screenshot 2025-08-14 at 4.52.03 AM.png' %}" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                          <h5 class="card-title">SQL Project</h5>
+                          <p class="card-text">
+                           SQL Project
+                          </p>
+                          <span class="badge bg-warning text-dark">MySql</span>
+                          <span class="badge bg-info">PostgreSQL</span>
+                          <span class="badge bg-info">SQLite</span>
+
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="https://github.com/OguntolaPelumi/SQL_Project"></a>
+                          
+                        </div>
+                      </div>
+                    </div>
+
+
                   </div>
                 </div>
               </section>
@@ -276,7 +319,7 @@
                 <div class="container">
                   <h2 class="text-center mb-4">Tech Stack</h2>
                   <p class="text-center text-muted mb-5">
-                    Tools and technologies I use to deliver powerful, data-driven solutions.
+                    Tools and technologies I use.
                   </p>
               
                   <div class="row text-center">
@@ -284,7 +327,7 @@
                     <div class="col-md-4 mb-4">
                       <div class="card shadow-sm border-0 h-100">
                         <div class="card-body">
-                          <h5 class="card-title mb-3">Data Science & ML</h5>
+                          <h5 class="card-title mb-3">Data Science</h5>
                           <p class="card-text text-muted">
                             Python, Pandas, NumPy, Scikit-learn, TensorFlow, Matplotlib, Seaborn, Power Bi
                           </p>

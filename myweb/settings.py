@@ -115,23 +115,39 @@ CONTACT_EMAIL = 'pelmijosh@gmail.com'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-
+#Database
+#https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myweb_ino8',  # Your database name on Render
-        'USER': 'myweb_ino8_user',
-        'PASSWORD': 'M5PRywVjjzaKRdDvyAjAJy8ZSqWp122x',
-        'HOST': 'dpg-d2hpgh24d50c73bmbr7g-a.oregon-postgres.render.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "myweb",
+        "USER": "root",
+        "PASSWORD": "OldStunna27!",
+        "HOST": "localhost",
+        "PORT": "3306",
+        "OPTIONS": {
+            "autocommit": True,
         },
 
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'myweb_ino8',  # Your database name on Render
+#         'USER': 'myweb_ino8_user',
+#         'PASSWORD': 'M5PRywVjjzaKRdDvyAjAJy8ZSqWp122x',
+#         'HOST': 'dpg-d2hpgh24d50c73bmbr7g-a.oregon-postgres.render.com',
+#         'PORT': '5432',
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         },
+
+#     }
+# }
 
 # DATABASES = {
 #     "default": dj_database_url.config(
