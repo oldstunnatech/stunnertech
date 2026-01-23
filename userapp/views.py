@@ -87,7 +87,7 @@ def delete_profile(request, userId):
     return HttpResponsePermanentRedirect(reverse("all_user", args=(user_status,)))
 
 
-@login_required
+
 def contact_view(request):
     if request.method == "POST":
         form = Contact_form(request.POST)
