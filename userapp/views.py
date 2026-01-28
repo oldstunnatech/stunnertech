@@ -5,12 +5,14 @@ from django.views import generic
 from .forms import SignUpForm, Profile_form, User_form, Contact_form
 from django.contrib.auth.decorators import login_required
 from .models import Profile
-from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponsePermanentRedirect
 from django.core.mail import EmailMessage
+from .utils import send_email_async
+import logging
+logger = logging.getLogger(__name__)
 
 
 
@@ -140,10 +142,10 @@ def contact_view(request):
 
             try:
                 # Send email in real-time
-                email.send(fail_silently=False)
+                send_email_async(email)
             except Exception as e:
                 # Handle errors (e.g., SMTP connection issues)
-                print(f"Email sending failed: {e}")
+                logger.error(f"Email sending failed: {e}")
                 return render(request, "userapp/message_us.html", {
                     "form": form,
                     "error": "There was an error sending your message. Please try again later."
