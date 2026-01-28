@@ -78,14 +78,35 @@ class User_form(forms.ModelForm):
         ]
 
 
-class Contact_form(forms.ModelForm):
-    class Meta:
-        model = Contact_message
-        fields = ['name', 'email', 'subject', 'message',]
-        widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Full Name', 'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'Your Email', 'class': 'form-control'}),
-            'subject': forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'form-control'}),
-            'message': forms.Textarea(attrs={'placeholder': 'Your Message', 'class': 'form-control', 'rows': 5}),
-        }
+# class Contact_form(forms.ModelForm):
+#     class Meta:
+#         model = Contact_message
+#         fields = ['name', 'email', 'subject', 'message',]
+#         widgets = {
+#             'name': forms.TextInput(attrs={'placeholder': 'Full Name', 'class': 'form-control'}),
+#             'email': forms.EmailInput(attrs={'placeholder': 'Your Email', 'class': 'form-control'}),
+#             'subject': forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'form-control'}),
+#             'message': forms.Textarea(attrs={'placeholder': 'Your Message', 'class': 'form-control', 'rows': 5}),
 
+#         }
+
+
+class Contact_form(forms.Form):
+    name = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name'})
+    )
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email'})
+    )
+    subject = forms.CharField(
+        max_length=200,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subject'})
+    )
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your Message', 'rows': 5})
+    )
+    attachment = forms.FileField(
+        required=False,
+        widget=forms.ClearableFileInput(attrs={'class': 'form-control'})
+    )

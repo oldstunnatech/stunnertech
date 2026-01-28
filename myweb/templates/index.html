@@ -34,7 +34,7 @@
                 <nav>
                   <div>
                     <div>
-                      <h1><a href="{% url 'home' %}">StunnerTech</a></h1>
+                      <h1><a href="{% url 'home' %}">Oguntola Pelumi</a></h1>
                       
                   </div>
                   
@@ -52,7 +52,7 @@
                               <li><a href="{% url 'services' %}">SERVICES</a></li>
                               <li><a href="{% url 'contact' %}">CONTACT</a></li>
   
-                              {% if request.user.is_authenticated %}
+                              {% comment %} {% if request.user.is_authenticated %}
                               <li>
                                 <form action="{% url 'logout' %}" method="post" style="display:inline;">
                                   {% csrf_token %}
@@ -60,11 +60,11 @@
                                       LOGOUT
                                   </button>
                               </form>
-                              </li>
-                            {% else %}
+                              </li> {% endcomment %}
+                            {% comment %} {% else %}
                               <li><a href="{% url 'login' %}">LOGIN</a></li>
                               <li><a href="{% url 'signup' %}">JOIN</a></li>
-                            {% endif %}
+                            {% endif %} {% endcomment %}
                           </ul>
                       </div>
                   </div>  
@@ -81,10 +81,10 @@
                       <img src="{% static 'media/Machine-Learning.jpg' %}" class="d-block w-100" alt="...">
                       <div class="carousel-caption d-sm-block d-md-block">
                           <div class="caro">
-                              <h1>Where Ideas Becomes System</h1>
+                              <h1>Data-Driven Solutions for Real Problems</h1>
                     
                           <p>Turning Complexity into Solution</p>
-                          <button><a href="{% url 'contact' %}">Message Us</a></button>
+                          <button><a href="{% url 'contact' %}">Message me</a></button>
                           </div>
                         </div>
                       
@@ -378,13 +378,13 @@
                     <div class="col-md-4">
                       <div class="card shadow-sm border-0 h-100">
                         <div class="card-body">
-                          <p class="text-muted">"Oldstunna delivered an incredible machine learning model that improved our prediction accuracy by 30%!"</p>
+                          <p class="text-muted">"Pelumi delivered an incredible machine learning model that improved our prediction accuracy by 30%!"</p>
                         </div>
                         <div class="card-footer bg-white border-0 d-flex align-items-center">
                           <img src="{% static 'media/IMG_3797.jpg' %}" alt="Client 1" class="rounded-circle me-3" width="50" height="50">
                           <div>
                             <h6 class="mb-0 fw-bold">Oguntola Pelumi</h6>
-                            <small class="text-muted">Product Manager, OldStunna-Tech</small>
+                            <small class="text-muted">Founder, StunnaTech</small>
                           </div>
                         </div>
                       </div>

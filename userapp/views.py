@@ -10,6 +10,8 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponsePermanentRedirect
+from django.core.mail import EmailMessage
+
 
 
 
@@ -88,30 +90,72 @@ def delete_profile(request, userId):
 
 
 
-def contact_view(request):
-    if request.method == "POST":
-        form = Contact_form(request.POST)
+# def contact_view(request):
+#     if request.method == "POST":
+#         form = Contact_form(request.POST, request.FILES)
         
        
 
-        if form.is_valid():
-            # Save to database
-            contact_details = form.save()
+#         if form.is_valid():
+#             # Save to database
+#             contact_details = form.save()
 
-            # Optional: Send email to you
-            send_mail(
-                contact_details.subject,
-                f"From: {contact_details.name} ({contact_details.email})\n\n{contact_details.message}",
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.CONTACT_EMAIL],
+#             # Optional: Send email to you
+#             send_mail(
+#                 contact_details.subject,
+#                 f"From: {contact_details.name} ({contact_details.email})\n\n{contact_details.message}",
+#                 settings.DEFAULT_FROM_EMAIL,
+#                 [settings.CONTACT_EMAIL],
+#             )
+
+#             return redirect('contact_success')
+#     else:
+#         form = Contact_form()
+#     return render(request, "userapp/message_us.html", {"form": form})
+
+
+def contact_view(request):
+    if request.method == "POST":
+        form = Contact_form(request.POST, request.FILES)
+        
+        if form.is_valid():
+            cd = form.cleaned_data
+
+            # Prepare the email
+            email = EmailMessage(
+                subject=cd['subject'],
+                body=f"From: {cd['name']} ({cd['email']})\n\n{cd['message']}",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[settings.CONTACT_EMAIL],  # recipient email
             )
 
+            # Attach file if provided
+            attachment = cd.get('attachment')
+            if attachment:
+                email.attach(
+                    attachment.name,
+                    attachment.read(),
+                    attachment.content_type
+                )
+
+            try:
+                # Send email in real-time
+                email.send(fail_silently=False)
+            except Exception as e:
+                # Handle errors (e.g., SMTP connection issues)
+                print(f"Email sending failed: {e}")
+                return render(request, "userapp/message_us.html", {
+                    "form": form,
+                    "error": "There was an error sending your message. Please try again later."
+                })
+
+            # Redirect to success page
             return redirect('contact_success')
+
     else:
         form = Contact_form()
-    return render(request, "userapp/message_us.html", {"form": form})
-    
 
+    return render(request, "userapp/message_us.html", {"form": form})
 
 
 
