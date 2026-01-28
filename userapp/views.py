@@ -142,7 +142,8 @@ def contact_view(request):
 
             try:
                 # Send email in real-time
-                send_email_async(email)
+                # send_email_async(email)
+                email.send(fail_silently=False)
             except Exception as e:
                 # Handle errors (e.g., SMTP connection issues)
                 logger.error(f"Email sending failed: {e}")
